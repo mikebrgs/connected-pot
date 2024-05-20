@@ -1,0 +1,12 @@
+[submodule "atmospheric-sensor"]
+	path = atmospheric-sensor
+	url = https://github.com/mikebrgs/atmospheric-sensor
+[submodule "light-sensor"]
+	path = light-sensor
+	url = https://github.com/mikebrgs/light-sensor
+[submodule "moisture-sensor"]
+	path = moisture-sensor
+	url = https://github.com/mikebrgs/moisture-sensor
+[submodule "pot-client"]
+	path = pot-client
+	url = https://github.com/mikebrgs/pot-client
