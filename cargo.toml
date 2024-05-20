@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "atmospheric-sensor",
+    "light-sensor",
+    "moisture-sensor",
+    "pot-client"
+]
