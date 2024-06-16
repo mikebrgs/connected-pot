@@ -1,0 +1,14 @@
+device_id: mock
+
+mqtt:
+  host: localhost
+  port: 1883
+
+sensors:
+  period: 1
+  atmospheric:
+    address: /dev/i2c-1
+  moisture:
+    address: /dev/i2c-1
+  light:
+    address: /dev/i2c-1

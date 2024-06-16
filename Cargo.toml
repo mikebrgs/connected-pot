@@ -1,8 +1,34 @@
-[workspace]
+[package]
+name = "pot-client"
+version = "0.1.0"
+edition = "2021"
 
-members = [
-    "atmospheric-sensor",
-    "light-sensor",
-    "moisture-sensor",
-    "pot-client"
-]
+[dependencies]
+atmospheric-sensor = { git = "https://github.com/mikebrgs/atmospheric-sensor", branch = "master" }
+chrono = {version = "0.4.38", features = ["serde"]}
+env_logger = "0.11.3"
+light-sensor = { git = "https://github.com/mikebrgs/light-sensor", branch = "master" }
+linux-embedded-hal = {version = "0.4.0", features = ["i2c"], optional = true}
+log = "0.4.21"
+moisture-sensor = { git = "https://github.com/mikebrgs/moisture-sensor", branch = "master" }
+paho-mqtt = "0.12.4"
+rand = { version = "0.8.5", optional = true }
+scopeguard = "1.2.0"
+serde = {version = "1.0.202", features = ["derive"]}
+serde_json = "1.0.117"
+serde_yaml = "0.9.34"
+
+[features]
+default = ["off-target"]
+on-target = ["dep:linux-embedded-hal"]
+off-target = ["dep:rand"]
+
+[[bin]]
+name = "mock"
+path = "src/mock.rs"
+required-features = ["off-target"]
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+required-features = ["on-target"]
